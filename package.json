@@ -1,6 +1,6 @@
 {
   "name": "middy-basic-auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A super minimal middy, basic authentication middleware in your serverless-based lambda functions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

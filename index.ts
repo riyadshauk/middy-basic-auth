@@ -1,4 +1,4 @@
-import middy from "@middy/core";
+import { MiddlewareObj } from "@middy/core";
 
 /**
  * @description a super minimal middy middleware for basic authentication
@@ -6,8 +6,8 @@ import middy from "@middy/core";
  * @param realPassword the actual password to verify against the supplied one
  * @returns a middy middleware object with a before function which returns undefined iff authorized, else a 401 statusCode
  */
-export default (realUsername: string, realPassword: string) => ({
-  before: ({ event: { headers } }: middy.Request) => {
+export default (realUsername: string, realPassword: string): MiddlewareObj => ({
+  before: ({ event: { headers } }) => {
     try {
       const auth = headers.authorization || headers.Authorization;
       const [username, password] = Buffer.from(auth.split(' ')[1], 'base64').toString('utf8').split(':');
